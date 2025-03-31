@@ -4,6 +4,7 @@ vars:
   REVISION: "rev4.1"
   MOUNT_POINT: "/Volumes/RPI-RP2" # Default for macOS; adjust for Linux
   KEYMAP: "default"
+  VOYAGER_SOURCES: https://oryx.zsa.io/source/v6A0Er
   QMK_SOURCES: "~/qmk_firmware"
   QMK_USER_OVERLAY:
     sh: realpath .
@@ -21,6 +22,17 @@ tasks:
       - cmd: qmk setup
     status:
       - test -d {{ .QMK_SOURCES }}
+
+  download-voyager-sources:
+    desc: "Download and extract Voyager keyboard sources to voyager directory."
+    vars:
+      TEMP_ZIP:
+        sh: mktemp -u --suffix=.zip
+    cmds:
+      - defer: rm -rf {{ .TEMP_ZIP }}
+      - curl {{ .VOYAGER_SOURCES }} -o {{ .TEMP_ZIP }}
+      - unzip -o {{ .TEMP_ZIP }} "zsa_voyager_default_source/*"
+      - mv zsa_voyager_default_source voyager
 
   setup-userspace-config:
     desc: "Configures qmk to use current directory for keymaps"
@@ -40,6 +52,20 @@ tasks:
 #         - cp .build/{{.KEYBOARD}}_{{.KEYMAP}}.uf2 {{.MOUNT_POINT}}
 
   clean-qmk-source:
-    desc: "Remove qmk source repository"
     cmds:
       - rm -rf {{ .QMK_SOURCES }}
+
+  clean-build:
+    cmds:
+      - rm -rf *.uf2
+
+  clean-voyager:
+    cmds:
+      - rm -rf voyager
+      - rm -rf zsa_voyager*
+
+  clean-repo:
+    desc: Cleanup
+    deps:
+      - clean-voyager
+      - clean-build
