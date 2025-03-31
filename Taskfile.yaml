@@ -1,0 +1,45 @@
+version: "3"
+vars:
+  KEYBOARD: "crkbd"
+  REVISION: "rev4.1"
+  MOUNT_POINT: "/Volumes/RPI-RP2" # Default for macOS; adjust for Linux
+  KEYMAP: "default"
+  QMK_SOURCES: "~/qmk_firmware"
+  QMK_USER_OVERLAY:
+    sh: realpath .
+tasks:
+  install:
+    desc: "Install QMK CLI via brew if not already installed."
+    cmds:
+      - cmd: brew install qmk/qmk/qmk
+    status:
+      - command -v qmk >/dev/null 2>&1
+
+  setup:
+    desc: "Pull the latest stable QMK sources."
+    cmds:
+      - cmd: qmk setup
+    status:
+      - test -d {{ .QMK_SOURCES }}
+
+  setup-userspace-config:
+    desc: "Configures qmk to use current directory for keymaps"
+    cmds:
+      - qmk config user.overlay_dir="{{ .QMK_USER_OVERLAY }}"
+    status:
+      - test "$(qmk config user.overlay_dir)" = "user.overlay_dir={{ .QMK_USER_OVERLAY }}"
+
+  build:
+    desc: "Build the firmware and generate a .uf2 file for the specified keyboard/revision and keymap."
+    cmds:
+      - qmk compile -kb crkbd/rev4_1/standard -km zbindenren
+
+# flash:
+#     desc: "Copy the .uf2 file to the RPI-RP2 device at the specified mount point."
+#     cmds:
+#         - cp .build/{{.KEYBOARD}}_{{.KEYMAP}}.uf2 {{.MOUNT_POINT}}
+
+  clean-qmk-source:
+    desc: "Remove qmk source repository"
+    cmds:
+      - rm -rf {{ .QMK_SOURCES }}
