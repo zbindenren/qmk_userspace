@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "i18n.h"
+#include "rgb_matrix.h"
 
 enum tap_dance_codes {
   DANCE_0,
@@ -195,3 +196,75 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, u
     return get_chordal_hold_default(tap_hold_record, other_record);
 }
 #endif
+
+extern rgb_config_t rgb_matrix_config;
+
+void keyboard_post_init_user(void) {
+  rgb_matrix_enable();
+}
+
+
+// Color definitions (H,S,V)
+#define LC_XXX       0,   0,   0
+#define LC_WHI       0,   0, 255
+#define LC_RED       0, 255, 255
+#define LC_BLU     170, 255, 255
+#define LC_CYA     200, 255, 255
+#define LC_GRE      74, 255, 255
+#define LC_YEL      41, 255, 255
+
+const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
+    [0] = { {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_XXX}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX} },
+
+    [1] = { {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+
+    [2] = { {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+
+    [3] = { {LC_XXX}, {LC_XXX}, {LC_GRE}, {LC_BLU}, {LC_BLU}, {LC_GRE}, {LC_GRE}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_YEL}, {LC_YEL}, {LC_YEL}, {LC_BLU}, {LC_BLU}, {LC_BLU}, {LC_XXX}, {LC_XXX}, {LC_BLU}, {LC_BLU}, {LC_BLU}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+
+    [4] = { {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+};
+
+void set_layer_color(int layer) {
+  for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
+    HSV hsv = {
+      .h = pgm_read_byte(&ledmap[layer][i][0]),
+      .s = pgm_read_byte(&ledmap[layer][i][1]),
+      .v = pgm_read_byte(&ledmap[layer][i][2]),
+    };
+    if (!hsv.h && !hsv.s && !hsv.v) {
+        rgb_matrix_set_color( i, 0, 0, 0 );
+    } else {
+        RGB rgb = hsv_to_rgb( hsv );
+        float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
+        rgb_matrix_set_color( i, f * rgb.r, f * rgb.g, f * rgb.b );
+    }
+  }
+}
+
+bool rgb_matrix_indicators_user(void) {
+  switch (get_highest_layer(layer_state | default_layer_state)) {
+    case 0: set_layer_color(0); break;
+    case 1: set_layer_color(1); break;
+    case 2: set_layer_color(2); break;
+    case 3: set_layer_color(3); break;
+    case 4: set_layer_color(4); break;
+    default:
+      if (rgb_matrix_get_flags() == LED_FLAG_NONE)
+        rgb_matrix_set_color_all(0, 0, 0);
+      break;
+  }
+  return true;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+
+    case RGB_MODE_PLAIN:
+      if (record->event.pressed) {
+        rgblight_mode(1);
+      }
+      return false;
+  }
+  return true;
+}

@@ -1,0 +1,62 @@
+# XXX: no color
+# ---: not exist
+- layer: 0
+  name: default
+  left:
+      - [CYA, CYA, CYA, CYA, CYA, CYA, XXX]
+      - [CYA, WHI, WHI, WHI, WHI, CYA, XXX]
+      - [WHI, CYA, CYA, CYA, CYA, CYA, ---]
+      - [---, ---, ---, CYA, CYA, CYA, ---]
+  right:
+      - [XXX, CYA, CYA, CYA, CYA, CYA, XXX]
+      - [CYA, WHI, WHI, WHI, WHI, CYA, XXX]
+      - [WHI, CYA, CYA, CYA, CYA, CYA, ---]
+      - [---, ---, ---, CYA, CYA, CYA, ---]
+- layer: 1
+  name: nav
+  left:
+      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
+      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
+      - [---, ---, ---, XXX, XXX, XXX, ---]
+  right:
+      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [XXX, XXX, CYA, CYA, CYA, CYA, XXX]
+      - [XXX, XXX, WHI, CYA, CYA, WHI, ---]
+      - [---, ---, ---, XXX, XXX, XXX, ---]
+- layer: 2
+  name: num-r
+  left:
+      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
+      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
+      - [---, ---, ---, XXX, XXX, XXX, ---]
+  right:
+      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
+      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
+      - [---, ---, ---, XXX, XXX, XXX, ---]
+- layer: 3
+  name: sym
+  left:
+      - [XXX, XXX, XXX, XXX, BLU, BLU, XXX]
+      - [XXX, XXX, XXX, XXX, GRE, GRE, XXX]
+      - [XXX, XXX, XXX, XXX, GRE, XXX, ---]
+      - [---, ---, ---, XXX, XXX, XXX, ---]
+  right:
+      - [XXX, CYA, CYA, BLU, BLU, YEL, XXX]
+      - [XXX, XXX, XXX, BLU, BLU, YEL, XXX]
+      - [XXX, XXX, XXX, BLU, BLU, YEL, ---]
+      - [---, ---, ---, XXX, XXX, XXX, ---]
+- layer: 4
+  lame: num-l
+  left:
+      - [WHI, XXX, CYA, CYA, CYA, XXX, XXX]
+      - [XXX, XXX, CYA, CYA, CYA, XXX, XXX]
+      - [WHI, XXX, CYA, CYA, CYA, XXX, ---]
+      - [---, ---, ---, XXX, CYA, WHI, ---]
+  right:
+      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
+      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
+      - [---, ---, ---, XXX, XXX, XXX, ---]

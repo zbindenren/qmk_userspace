@@ -1,9 +1,6 @@
 #pragma once
 
-//#define USE_MATRIX_I2C
-
-//#define QUICK_TAP_TERM 0
-//#define TAPPING_TERM 100
+#define SPLIT_LAYER_STATE_ENABLE
 
 #define CHORDAL_HOLD
 #undef TAPPING_TERM
@@ -55,14 +52,15 @@
 #undef ENABLE_RGB_MATRIX_PIXEL_RAIN
 #undef ENABLE_RGB_MATRIX_PIXEL_FLOW
 #undef ENABLE_RGB_MATRIX_PIXEL_FRACTAL
-
-// Keep only the solid color effect
-#define ENABLE_RGB_MATRIX_SOLID_COLOR
-
-// Set default mode to solid color
-#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
-
-// Set your desired color
-#define RGB_MATRIX_DEFAULT_HUE 200
-#define RGB_MATRIX_DEFAULT_SAT 255
-#define RGB_MATRIX_DEFAULT_VAL 150
+#undef ENABLE_RGB_MATRIX_SOLID_COLOR
+//
+// // Keep only the solid color effect
+// #define ENABLE_RGB_MATRIX_SOLID_COLOR
+//
+// // Set default mode to solid color
+// #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
+//
+// // Set your desired color
+// #define RGB_MATRIX_DEFAULT_HUE 200
+// #define RGB_MATRIX_DEFAULT_SAT 255
+// #define RGB_MATRIX_DEFAULT_VAL 150
