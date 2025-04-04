@@ -2,17 +2,19 @@
 
 #define SPLIT_LAYER_STATE_ENABLE
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ General Tapping ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #define CHORDAL_HOLD
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
+#define TAPPING_TERM_PER_KEY
 
 #define PERMISSIVE_HOLD
 
+// ━━━━━━━━━━━━━━━━━━━━━━ Make Keyboard Immediately Ready ━━━━━━━━━━━━━━━━━━━━━━
 #undef USB_SUSPEND_WAKEUP_DELAY
 #define USB_SUSPEND_WAKEUP_DELAY 0
 
-#define TAPPING_TERM_PER_KEY
-
+// ━━━━━━━━━━━━━━━━━━━ Boot Magic Upper Left On Both Halves ━━━━━━━━━━━━━━━━━━━━
 #define BOOTMAGIC_ROW 0
 #undef  BOOTMAGIC_COLUMN
 #define BOOTMAGIC_COLUMN 0
@@ -20,9 +22,10 @@
 #undef  BOOTMAGIC_COLUMN_RIGHT
 #define BOOTMAGIC_COLUMN_RIGHT 5
 
+// ━━━━━━━━━━━━━━━━━━━━━━━ Disable LEDS After 5 Minutes ━━━━━━━━━━━━━━━━━━━━━━━━
 #define RGB_MATRIX_TIMEOUT 300000
 
-// Disable all RGB matrix effects first
+// ━━━━━━━━━━━━━━━━━━━━━━ Disable All RGB Matrix Effects  ━━━━━━━━━━━━━━━━━━━━━━
 #undef ENABLE_RGB_MATRIX_ALPHAS_MODS
 #undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #undef ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
@@ -53,14 +56,3 @@
 #undef ENABLE_RGB_MATRIX_PIXEL_FLOW
 #undef ENABLE_RGB_MATRIX_PIXEL_FRACTAL
 #undef ENABLE_RGB_MATRIX_SOLID_COLOR
-//
-// // Keep only the solid color effect
-// #define ENABLE_RGB_MATRIX_SOLID_COLOR
-//
-// // Set default mode to solid color
-// #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
-//
-// // Set your desired color
-// #define RGB_MATRIX_DEFAULT_HUE 200
-// #define RGB_MATRIX_DEFAULT_SAT 255
-// #define RGB_MATRIX_DEFAULT_VAL 150

@@ -25,6 +25,7 @@ enum tap_dance_codes {
   DANCE_1,
 };
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Keymap ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           CH_Z,           KC_U,           KC_I,           KC_O,           KC_P,           CH_UE,
@@ -70,6 +71,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Tap Dance ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LCTL, KC_F):
@@ -187,6 +189,7 @@ tap_dance_action_t tap_dance_actions[] = {
 };
 
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Chordal Hold ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #ifdef CHORDAL_HOLD
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
     switch (tap_hold_keycode) {
@@ -197,6 +200,8 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, u
 }
 #endif
 
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Layer Colors ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 extern rgb_config_t rgb_matrix_config;
 
 void keyboard_post_init_user(void) {
