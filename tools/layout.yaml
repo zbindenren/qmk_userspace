@@ -8,10 +8,10 @@
       - [WHI, CYA, CYA, CYA, CYA, CYA, ---]
       - [---, ---, ---, CYA, CYA, CYA, ---]
   right:
-      - [XXX, CYA, CYA, CYA, CYA, CYA, XXX]
-      - [CYA, WHI, WHI, WHI, WHI, CYA, XXX]
-      - [WHI, CYA, CYA, CYA, CYA, CYA, ---]
-      - [---, ---, ---, CYA, CYA, CYA, ---]
+      - [XXX, CYA, CYA, CYA, CYA, CYA, CYA]
+      - [XXX, CYA, WHI, WHI, WHI, WHI, CYA]
+      - [---, CYA, CYA, CYA, CYA, CYA, WHI]
+      - [---, CYA, CYA, CYA, ---, ---, ---]
 - layer: 1
   name: nav
   left:
@@ -21,9 +21,9 @@
       - [---, ---, ---, XXX, XXX, XXX, ---]
   right:
       - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
-      - [XXX, XXX, CYA, CYA, CYA, CYA, XXX]
-      - [XXX, XXX, WHI, CYA, CYA, WHI, ---]
-      - [---, ---, ---, XXX, XXX, XXX, ---]
+      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
+      - [---, WHI, CYA, CYA, WHI, XXX, XXX]
+      - [---, XXX, XXX, XXX, ---, ---, ---]
 - layer: 2
   name: num-r
   left:
@@ -33,9 +33,9 @@
       - [---, ---, ---, XXX, XXX, XXX, ---]
   right:
       - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
-      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
-      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
-      - [---, ---, ---, XXX, XXX, XXX, ---]
+      - [XXX, XXX, CYA, CYA, CYA, CYA, XXX]
+      - [---, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [---, XXX, XXX, XXX, ---, ---, ---]
 - layer: 3
   name: sym
   left:
@@ -44,10 +44,10 @@
       - [XXX, XXX, XXX, XXX, GRE, XXX, ---]
       - [---, ---, ---, XXX, XXX, XXX, ---]
   right:
-      - [XXX, CYA, CYA, BLU, BLU, YEL, XXX]
-      - [XXX, XXX, XXX, BLU, BLU, YEL, XXX]
-      - [XXX, XXX, XXX, BLU, BLU, YEL, ---]
-      - [---, ---, ---, XXX, XXX, XXX, ---]
+      - [XXX, YEL, BLU, BLU, CYA, CYA, XXX]
+      - [XXX, YEL, BLU, BLU, XXX, XXX, XXX]
+      - [---, YEL, BLU, BLU, XXX, XXX, XXX]
+      - [---, XXX, XXX, XXX, ---, ---, ---]
 - layer: 4
   lame: num-l
   left:
@@ -57,6 +57,6 @@
       - [---, ---, ---, XXX, CYA, WHI, ---]
   right:
       - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
-      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
-      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
-      - [---, ---, ---, XXX, XXX, XXX, ---]
+      - [XXX, XXX, CYA, CYA, CYA, CYA, XXX]
+      - [---, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [---, XXX, XXX, XXX, ---, ---, ---]

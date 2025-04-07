@@ -1,3 +1,4 @@
+// Package converts the layout yaml to C code
 package main
 
 import (
@@ -5,6 +6,7 @@ import (
 	"log/slog"
 	"maps"
 	"os"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -83,6 +85,12 @@ func (l Layer) colMap(side string) map[string]string {
 	switch side {
 	case "right":
 		s = l.Right
+
+		// reverse slice for the right side
+		for i := range l.Right {
+			row := l.Right[i]
+			slices.Reverse(row)
+		}
 	default:
 		s = l.Left
 	}

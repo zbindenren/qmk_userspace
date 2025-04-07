@@ -219,7 +219,7 @@ void keyboard_post_init_user(void) {
 #define LC_YEL      41, 255, 255
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
-    [0] = { {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_XXX}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX} },
+    [0] = { {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX} },
 
     [1] = { {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
 
