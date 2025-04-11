@@ -4,7 +4,9 @@ vars:
   REVISION: "rev4.1"
   MOUNT_POINT: "/Volumes/RPI-RP2" # Default for macOS; adjust for Linux
   KEYMAP: "default"
-  VOYAGER_SOURCES: https://oryx.zsa.io/source/v6A0Er
+  VOYAGER_URL: https://oryx.zsa.io
+  VOYAGER_LAYOUT_ID: zLbADd
+  VOYAGER_LAYOUT_NAME: eurkey
   QMK_SOURCES: "~/qmk_firmware"
   QMK_USER_OVERLAY:
     sh: realpath .
@@ -27,12 +29,13 @@ tasks:
     desc: "Download and extract Voyager keyboard sources to voyager directory."
     vars:
       TEMP_ZIP:
-        sh: mktemp -u --suffix=.zip
+        sh: mktemp -u
+      VOYAGER_SOURCES: "{{ .VOYAGER_URL }}/source/{{ .VOYAGER_LAYOUT_ID }}"
     cmds:
-      - defer: rm -rf {{ .TEMP_ZIP }}
-      - curl {{ .VOYAGER_SOURCES }} -o {{ .TEMP_ZIP }}
-      - unzip -o {{ .TEMP_ZIP }} "zsa_voyager_default_source/*"
-      - mv zsa_voyager_default_source voyager
+      - defer: rm -rf {{ .TEMP_ZIP }}.zip
+      - curl {{ .VOYAGER_SOURCES }} -o {{ .TEMP_ZIP }}.zip
+      - unzip -o {{ .TEMP_ZIP }}.zip "zsa_voyager_{{ .VOYAGER_LAYOUT_NAME }}_source/*"
+      - mv zsa_voyager_{{ .VOYAGER_LAYOUT_NAME }}_source voyager
 
   setup-userspace-config:
     desc: "Configures qmk to use current directory for keymaps"
