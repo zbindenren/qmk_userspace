@@ -6,7 +6,7 @@ vars:
   MOUNT_POINT: "/Volumes/RPI-RP2" # Default for macOS; adjust for Linux
   KEYMAP: "default"
   VOYAGER_URL: https://oryx.zsa.io
-  VOYAGER_LAYOUT_ID: B4NJRB
+  VOYAGER_LAYOUT_ID: ZPqal7
   VOYAGER_LAYOUT_NAME: default
   QMK_SOURCES: "~/qmk_firmware"
   QMK_USER_OVERLAY:
