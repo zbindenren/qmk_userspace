@@ -22,8 +22,8 @@
 #undef  BOOTMAGIC_COLUMN_RIGHT
 #define BOOTMAGIC_COLUMN_RIGHT 5
 
-// ━━━━━━━━━━━━━━━━━━━━━━━ Disable LEDS After 5 Minutes ━━━━━━━━━━━━━━━━━━━━━━━━
-#define RGB_MATRIX_TIMEOUT 300000
+// ━━━━━━━━━━━━━━━━━━━━━━━ Disable LEDS After 2 Minutes ━━━━━━━━━━━━━━━━━━━━━━━━
+#define RGB_MATRIX_TIMEOUT 120000
 
 // ━━━━━━━━━━━━━━━━━━━━━━ Disable All RGB Matrix Effects  ━━━━━━━━━━━━━━━━━━━━━━
 #undef ENABLE_RGB_MATRIX_ALPHAS_MODS
