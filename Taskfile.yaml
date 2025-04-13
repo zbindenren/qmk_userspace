@@ -1,27 +1,27 @@
 version: "3"
 vars:
+  DOCKER_IMAGE: ghcr.io/qmk/qmk_cli:latest
   KEYBOARD: "crkbd"
   REVISION: "rev4.1"
   MOUNT_POINT: "/Volumes/RPI-RP2" # Default for macOS; adjust for Linux
   KEYMAP: "default"
   VOYAGER_URL: https://oryx.zsa.io
-  VOYAGER_LAYOUT_ID: zLbADd
-  VOYAGER_LAYOUT_NAME: eurkey
+  VOYAGER_LAYOUT_ID: B4NJRB
+  VOYAGER_LAYOUT_NAME: default
   QMK_SOURCES: "~/qmk_firmware"
   QMK_USER_OVERLAY:
     sh: realpath .
 tasks:
-  install:
-    desc: "Install QMK CLI via brew if not already installed."
-    cmds:
-      - cmd: brew install qmk/qmk/qmk
-    status:
-      - command -v qmk >/dev/null 2>&1
-
   setup:
     desc: "Pull the latest stable QMK sources."
     cmds:
-      - cmd: qmk setup
+      - |
+        docker run -ti -v {{ .QMK_SOURCES }}:/qmk_firmware \
+        -e http_proxy=http://host.docker.internal:3128 \
+        -e https_proxy=http://host.docker.internal:3128 \
+        --add-host=host.docker.internal:host-gateway \
+        ghcr.io/qmk/qmk_cli:latest \
+        /bin/sh -c "qmk setup -y"
     status:
       - test -d {{ .QMK_SOURCES }}
 
@@ -37,8 +37,7 @@ tasks:
       - unzip -o {{ .TEMP_ZIP }}.zip "zsa_voyager_{{ .VOYAGER_LAYOUT_NAME }}_source/*"
       - mv zsa_voyager_{{ .VOYAGER_LAYOUT_NAME }}_source voyager
 
-  setup-userspace-config:
-    desc: "Configures qmk to use current directory for keymaps"
+  .setup-userspace-config:
     cmds:
       - qmk config user.overlay_dir="{{ .QMK_USER_OVERLAY }}"
     status:
@@ -47,12 +46,13 @@ tasks:
   build:
     desc: "Build the firmware and generate a .uf2 file for the specified keyboard/revision and keymap."
     cmds:
-      - qmk compile -kb crkbd/rev4_1/standard -km zbindenren
-
-# flash:
-#     desc: "Copy the .uf2 file to the RPI-RP2 device at the specified mount point."
-#     cmds:
-#         - cp .build/{{.KEYBOARD}}_{{.KEYMAP}}.uf2 {{.MOUNT_POINT}}
+      - |
+        docker run -ti \
+        -v {{ .QMK_SOURCES }}:/qmk_firmware \
+        -v .:/qmk_userspace \
+        -w /qmk_userspace \
+        ghcr.io/qmk/qmk_cli:latest \
+        /bin/sh -c "qmk compile -kb crkbd/rev4_1/standard -km zbindenren"
 
   clean-qmk-source:
     cmds:
