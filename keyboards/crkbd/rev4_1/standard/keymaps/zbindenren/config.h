@@ -1,6 +1,7 @@
 #pragma once
 
 #define SPLIT_LAYER_STATE_ENABLE
+#define COMBO_COUNT 2
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ General Tapping ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #define CHORDAL_HOLD
@@ -24,6 +25,7 @@
 
 // ━━━━━━━━━━━━━━━━━━━━━━━ Disable LEDS After 2 Minutes ━━━━━━━━━━━━━━━━━━━━━━━━
 #define RGB_MATRIX_TIMEOUT 120000
+#define RGB_MATRIX_STARTUP_SPD 60
 
 // ━━━━━━━━━━━━━━━━━━━━━━ Disable All RGB Matrix Effects  ━━━━━━━━━━━━━━━━━━━━━━
 #undef ENABLE_RGB_MATRIX_ALPHAS_MODS

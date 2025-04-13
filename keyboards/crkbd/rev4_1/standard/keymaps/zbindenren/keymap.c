@@ -31,34 +31,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           CH_Z,           KC_U,           KC_I,           KC_O,           KC_P,           CH_UE,
     CW_TOGG,        MT(MOD_LGUI, KC_A),MT(MOD_LALT, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),ALL_T(KC_G),                                    ALL_T(KC_H),    MT(MOD_LCTL, KC_J),MT(MOD_LSFT, KC_K),MT(MOD_LALT, KC_L),MT(MOD_LGUI, CH_OE),CH_AE,
     KC_DELETE,      CH_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         CH_MINS,        KC_DELETE,
-                                    KC_TRANSPARENT, LT(3,KC_BSPC),  LT(1,KC_ESCAPE),                                LT(4,KC_ENTER), LT(3,KC_SPACE), KC_TRANSPARENT
+                                    KC_TRANSPARENT, LT(2,KC_BSPC),  LT(4,KC_ESCAPE),                                LT(5,KC_ENTER), LT(2,KC_SPACE), KC_TRANSPARENT
   ),
 
     [1] = LAYOUT_split_3x6_3(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          QK_LLCK,
-    KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_NO,          KC_NO,
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, KC_NO,                                          KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         KC_INSERT,      KC_DELETE,
-                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_ENTER,       KC_SPACE,       KC_TRANSPARENT
+    KC_TAB,         KC_Q,           KC_W,           KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                                    KC_TRANSPARENT, LT(3,KC_BSPC),  KC_TRANSPARENT,                                 KC_TRANSPARENT, LT(3,KC_SPACE), KC_TRANSPARENT
   ),
 
     [2] = LAYOUT_split_3x6_3(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_KP_PLUS,     KC_7,           KC_8,           KC_9,           KC_KP_ASTERISK, QK_LLCK,
-    KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_HYPR,                                        KC_KP_EQUAL,    KC_4,           KC_5,           KC_6,           KC_SPACE,       KC_BSPC,
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, KC_NO,                                          KC_KP_MINUS,    KC_1,           KC_2,           KC_3,           KC_KP_SLASH,    KC_DELETE,
-                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 TD(DANCE_0),    KC_0,           KC_TRANSPARENT
+    KC_NO,          RALT(KC_N),     LALT(KC_G),     CH_PERC,        CH_LESS,        CH_MORE,                                        CH_DLR,         RALT(KC_8),     RALT(KC_9),     CH_PAST,        CH_AMPR,        CH_SCLN,
+    KC_NO,          CH_CARR,        CH_HASH,        CH_QST,         CH_DQOT,        CH_GRV,                                         CH_SLSH,        CH_LPRN,        CH_RPRN,        CH_EQL,         CH_EXLM,        CH_PLUS,
+    KC_NO,          CH_DIER,        KC_NO,          RALT(LSFT(KC_7)),CH_QUOT,        KC_NO,                                         CH_PIPE,        RALT(KC_5),     RALT(KC_6),     CH_COLN,        CH_MINS,        KC_NO,
+                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
     [3] = LAYOUT_split_3x6_3(
-    KC_TRANSPARENT, CH_TILD,        CH_AT,          CH_PERC,        CH_LESS,        CH_MORE,                                        CH_DLR,         CH_LCBR,        CH_RCBR,        CH_PAST,        CH_AMPR,        CH_SCLN,
-    KC_TRANSPARENT, CH_CARR,        CH_HASH,        CH_QST,         CH_DQOT,        CH_GRV,                                         CH_SLSH,        CH_LPRN,        CH_RPRN,        CH_EQL,         CH_EXLM,        CH_PLUS,
-    KC_TRANSPARENT, CH_DIER,        KC_NO,          CH_BSLS,        CH_QUOT,        KC_NO,                                          CH_PIPE,        CH_LBRC,        CH_RBRC,        CH_COLN,        CH_MINS,        KC_NO,
+    KC_NO,          CH_TILD,        CH_AT,          CH_PERC,        CH_LESS,        CH_MORE,                                        CH_DLR,         CH_LCBR,        CH_RCBR,        CH_PAST,        CH_AMPR,        KC_NO,
+    KC_NO,          CH_CARR,        CH_HASH,        CH_QST,         CH_DQOT,        CH_GRV,                                         CH_SLSH,        CH_LPRN,        CH_RPRN,        CH_EQL,         CH_EXLM,        CH_PLUS,
+    KC_NO,          CH_DIER,        KC_NO,          CH_BSLS,        CH_QUOT,        KC_NO,                                          CH_PIPE,        CH_LBRC,        CH_RBRC,        CH_COLN,        CH_MINS,        KC_NO,
                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
     [4] = LAYOUT_split_3x6_3(
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          QK_LLCK,
+    KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_HYPR,                                        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_NO,          KC_NO,
+    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, KC_NO,                                          KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         KC_NO,          KC_NO,
+                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+    [5] = LAYOUT_split_3x6_3(
     QK_LLCK,        KC_KP_PLUS,     KC_7,           KC_8,           KC_9,           KC_KP_ASTERISK,                                 KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
     KC_BSPC,        KC_KP_EQUAL,    KC_4,           KC_5,           KC_6,           KC_SPACE,                                       KC_HYPR,        KC_LEFT_CTRL,   KC_LEFT_SHIFT,  KC_LEFT_ALT,    KC_LEFT_GUI,    KC_NO,
-    KC_DELETE,      KC_KP_MINUS,    KC_1,           KC_2,           KC_3,           KC_KP_SLASH,                                    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-                                    KC_TRANSPARENT, KC_0,           TD(DANCE_1),                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_NO,          KC_KP_MINUS,    KC_1,           KC_2,           KC_3,           KC_KP_SLASH,                                    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+                                    KC_TRANSPARENT, KC_0,           TD(DANCE_0),                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 };
 
@@ -70,6 +76,15 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [3] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(RM_VALD, RM_VALU), ENCODER_CCW_CW(KC_RGHT, KC_LEFT), },
 };
 #endif
+
+ // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Combos ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const uint16_t PROGMEM combo0[] = { KC_P, CH_UE, KC_O, COMBO_END};
+const uint16_t PROGMEM combo1[] = { KC_TAB, KC_Q, KC_W, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(combo0, TO(1)),
+    COMBO(combo1, TO(0)),
+};
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Tap Dance ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
