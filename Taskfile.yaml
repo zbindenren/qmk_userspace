@@ -54,6 +54,19 @@ tasks:
         ghcr.io/qmk/qmk_cli:latest \
         /bin/sh -c "qmk compile -kb crkbd/rev4_1/standard -km zbindenren"
 
+  c2json:
+    desc: "Convert keymap.c to json."
+    cmds:
+      - |
+        docker run -ti \
+        -v {{ .QMK_SOURCES }}:/qmk_firmware \
+        -v .:/qmk_userspace \
+        -w /qmk_userspace \
+        ghcr.io/qmk/qmk_cli:latest \
+        /bin/sh -c "qmk c2json --no-cpp keyboards/crkbd/rev4_1/standard/keymaps/zbindenren/keymap.c > keyboards/crkbd/rev4_1/standard/keymaps/zbindenren/keymap"
+      - defer: rm -f keyboards/crkbd/rev4_1/standard/keymaps/zbindenren/keymap
+      - jq . keyboards/crkbd/rev4_1/standard/keymaps/zbindenren/keymap > keyboards/crkbd/rev4_1/standard/keymaps/zbindenren/keymap.json
+
   clean-qmk-source:
     cmds:
       - rm -rf {{ .QMK_SOURCES }}
