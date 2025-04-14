@@ -50,6 +50,7 @@ tasks:
       - defer: rm -rf {{ .TEMP_ZIP }}.zip
       - curl {{ .VOYAGER_SOURCES }} -o {{ .TEMP_ZIP }}.zip
       - unzip -o {{ .TEMP_ZIP }}.zip "zsa_voyager_{{ .VOYAGER_LAYOUT_NAME }}_source/*"
+      - rm -rf voyager
       - mv zsa_voyager_{{ .VOYAGER_LAYOUT_NAME }}_source voyager
 
   .setup-userspace-config:
