@@ -6,7 +6,8 @@ vars:
   MOUNT_POINT: "/Volumes/RPI-RP2" # Default for macOS; adjust for Linux
   KEYMAP: "default"
   VOYAGER_URL: https://oryx.zsa.io
-  VOYAGER_LAYOUT_ID: ZPqal7
+  VOYAGER_LAYOUT_ID: WaxAl
+  VOYAGER_GEOMETRY: voyager
   VOYAGER_LAYOUT_NAME: default
   QMK_SOURCES: "~/qmk_firmware"
   QMK_USER_OVERLAY:
@@ -28,10 +29,24 @@ tasks:
   download-voyager-sources:
     desc: "Download and extract Voyager keyboard sources to voyager directory."
     vars:
+      RESP:
+        sh: |
+            curl --location 'https://oryx.zsa.io/graphql' --header 'Content-Type: application/json' --data '{"query":"query getLayout($hashId: String!, $revisionId: String!, $geometry: String) {layout(hashId: $hashId, geometry: $geometry, revisionId: $revisionId) {  revision { hashId, qmkVersion, title }}}","variables":{"hashId":"{{ .VOYAGER_LAYOUT_ID }}","geometry":"{{ .VOYAGER_GEOMETRY }}","revisionId":"latest"}}' | jq '.data.layout.revision | [.hashId, .qmkVersion, .title]'
+      HASH_ID:
+        sh: |
+            echo '{{ .RESP }}' | jq -r '.[0]'
+      FIRMWARE_VERSION:
+        sh: |
+            echo '{{ .RESP }}' | jq -r '.[1]'
+      CHANGE_DESCRIPTION:
+        sh: |
+            echo '{{ .RESP }}' | jq -r '.[2]'
+      VOYAGER_SOURCES: "{{ .VOYAGER_URL }}/source/{{ .HASH_ID }}"
       TEMP_ZIP:
         sh: mktemp -u
-      VOYAGER_SOURCES: "{{ .VOYAGER_URL }}/source/{{ .VOYAGER_LAYOUT_ID }}"
     cmds:
+      - cmd: echo "downloading hash={{ .HASH_ID }}, msg={{ .CHANGE_DESCRIPTION }}, firmware={{ .FIRMWARE_VERSION }}"
+        silent: true
       - defer: rm -rf {{ .TEMP_ZIP }}.zip
       - curl {{ .VOYAGER_SOURCES }} -o {{ .TEMP_ZIP }}.zip
       - unzip -o {{ .TEMP_ZIP }}.zip "zsa_voyager_{{ .VOYAGER_LAYOUT_NAME }}_source/*"
