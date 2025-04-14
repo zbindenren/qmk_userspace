@@ -232,22 +232,20 @@ void keyboard_post_init_user(void) {
 // Color definitions (H,S,V)
 #define LC_XXX       0,   0,   0
 #define LC_WHI       0,   0, 255
-#define LC_RED       0, 255, 255
-#define LC_BLU     170, 255, 255
-#define LC_CYA     200, 255, 255
-#define LC_GRE      74, 255, 255
-#define LC_YEL      41, 255, 255
+#define LC_MAN     200, 255, 255
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
-    [0] = { {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX} },
+    [0] = { {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_XXX}, {LC_XXX} },
 
-    [1] = { {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+    [1] = { {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_XXX}, {LC_XXX} },
 
-    [2] = { {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+    [2] = { {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
 
-    [3] = { {LC_XXX}, {LC_XXX}, {LC_GRE}, {LC_BLU}, {LC_BLU}, {LC_GRE}, {LC_GRE}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_YEL}, {LC_YEL}, {LC_YEL}, {LC_BLU}, {LC_BLU}, {LC_BLU}, {LC_XXX}, {LC_XXX}, {LC_BLU}, {LC_BLU}, {LC_BLU}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+    [3] = { {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_WHI}, {LC_WHI}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
 
-    [4] = { {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_CYA}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+    [4] = { {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
+
+    [5] = { {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_XXX}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_WHI}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_MAN}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX}, {LC_XXX} },
 };
 
 void set_layer_color(int layer) {

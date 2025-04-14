@@ -1,62 +1,75 @@
 # XXX: no color
 # ---: not exist
 - layer: 0
-  name: default
+  name: MainMac
   left:
-      - [CYA, CYA, CYA, CYA, CYA, CYA, XXX]
-      - [CYA, WHI, WHI, WHI, WHI, CYA, XXX]
-      - [WHI, CYA, CYA, CYA, CYA, CYA, ---]
-      - [---, ---, ---, CYA, CYA, CYA, ---]
+      - [MAN, MAN, MAN, MAN, MAN, MAN, XXX]
+      - [MAN, WHI, WHI, WHI, WHI, MAN, XXX]
+      - [WHI, MAN, MAN, MAN, MAN, MAN, ---]
+      - [---, ---, ---, MAN, MAN, MAN, ---]
   right:
-      - [XXX, CYA, CYA, CYA, CYA, CYA, CYA]
-      - [XXX, CYA, WHI, WHI, WHI, WHI, CYA]
-      - [---, CYA, CYA, CYA, CYA, CYA, WHI]
-      - [---, CYA, CYA, CYA, ---, ---, ---]
+      - [XXX, MAN, MAN, MAN, MAN, MAN, MAN]
+      - [XXX, MAN, WHI, WHI, WHI, WHI, MAN]
+      - [---, MAN, MAN, MAN, MAN, MAN, WHI]
+      - [---, MAN, MAN, MAN, ---, ---, ---]
 - layer: 1
-  name: nav
+  name: MainPC
   left:
-      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
-      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
-      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
-      - [---, ---, ---, XXX, XXX, XXX, ---]
+      - [WHI, WHI, WHI, WHI, WHI, WHI, XXX]
+      - [WHI, MAN, MAN, MAN, MAN, WHI, XXX]
+      - [MAN, WHI, WHI, WHI, WHI, WHI, ---]
+      - [---, ---, ---, WHI, WHI, WHI, ---]
   right:
-      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
-      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
-      - [---, WHI, CYA, CYA, WHI, XXX, XXX]
-      - [---, XXX, XXX, XXX, ---, ---, ---]
+      - [XXX, WHI, WHI, WHI, WHI, WHI, WHI]
+      - [XXX, WHI, MAN, MAN, MAN, MAN, WHI]
+      - [---, WHI, WHI, WHI, WHI, WHI, MAN]
+      - [---, WHI, WHI, WHI, ---, ---, ---]
 - layer: 2
-  name: num-r
+  name: SymMac
   left:
-      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
-      - [XXX, CYA, CYA, CYA, CYA, XXX, XXX]
-      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
+      - [XXX, XXX, XXX, XXX, MAN, MAN, XXX]
+      - [XXX, XXX, XXX, XXX, WHI, WHI, XXX]
+      - [XXX, XXX, XXX, XXX, WHI, XXX, ---]
       - [---, ---, ---, XXX, XXX, XXX, ---]
   right:
-      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
-      - [XXX, XXX, CYA, CYA, CYA, CYA, XXX]
-      - [---, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [XXX, WHI, MAN, MAN, WHI, WHI, XXX]
+      - [XXX, WHI, MAN, MAN, XXX, XXX, XXX]
+      - [---, WHI, MAN, MAN, XXX, XXX, XXX]
       - [---, XXX, XXX, XXX, ---, ---, ---]
 - layer: 3
-  name: sym
+  name: SymPC
   left:
-      - [XXX, XXX, XXX, XXX, BLU, BLU, XXX]
-      - [XXX, XXX, XXX, XXX, GRE, GRE, XXX]
-      - [XXX, XXX, XXX, XXX, GRE, XXX, ---]
+      - [XXX, XXX, XXX, XXX, MAN, MAN, XXX]
+      - [XXX, XXX, XXX, XXX, WHI, WHI, XXX]
+      - [XXX, XXX, XXX, XXX, WHI, XXX, ---]
       - [---, ---, ---, XXX, XXX, XXX, ---]
   right:
-      - [XXX, YEL, BLU, BLU, CYA, CYA, XXX]
-      - [XXX, YEL, BLU, BLU, XXX, XXX, XXX]
-      - [---, YEL, BLU, BLU, XXX, XXX, XXX]
+      - [XXX, WHI, MAN, MAN, WHI, WHI, XXX]
+      - [XXX, WHI, MAN, MAN, XXX, XXX, XXX]
+      - [---, WHI, MAN, MAN, XXX, XXX, XXX]
       - [---, XXX, XXX, XXX, ---, ---, ---]
+
 - layer: 4
-  lame: num-l
+  name: Nav
   left:
-      - [WHI, XXX, CYA, CYA, CYA, XXX, XXX]
-      - [XXX, XXX, CYA, CYA, CYA, XXX, XXX]
-      - [WHI, XXX, CYA, CYA, CYA, XXX, ---]
-      - [---, ---, ---, XXX, CYA, WHI, ---]
+      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [XXX, MAN, MAN, MAN, MAN, XXX, XXX]
+      - [XXX, XXX, XXX, XXX, XXX, XXX, ---]
+      - [---, ---, ---, XXX, XXX, XXX, ---]
   right:
       - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
-      - [XXX, XXX, CYA, CYA, CYA, CYA, XXX]
+      - [XXX, MAN, MAN, MAN, MAN, XXX, WHI]
+      - [---, WHI, MAN, MAN, WHI, XXX, XXX]
+      - [---, XXX, XXX, XXX, ---, ---, ---]
+- layer: 5
+  lame: Num
+  left:
+      - [WHI, XXX, MAN, MAN, MAN, XXX, XXX]
+      - [XXX, XXX, MAN, MAN, MAN, XXX, XXX]
+      - [WHI, XXX, MAN, MAN, MAN, XXX, ---]
+      - [---, ---, ---, XXX, MAN, WHI, ---]
+  right:
+      - [XXX, XXX, XXX, XXX, XXX, XXX, XXX]
+      - [XXX, XXX, MAN, MAN, MAN, MAN, XXX]
       - [---, XXX, XXX, XXX, XXX, XXX, XXX]
       - [---, XXX, XXX, XXX, ---, ---, ---]
