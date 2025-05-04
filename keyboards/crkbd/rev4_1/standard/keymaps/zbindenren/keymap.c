@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum custom_keycodes {
   ST_MACRO_0,
   ST_MACRO_1,
+  ST_MACRO_2,
 };
 
 enum tap_dance_codes {
@@ -46,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
     [2] = LAYOUT_split_3x6_3(
-    KC_NO,          ST_MACRO_0,     LALT(KC_G),     CH_PERC,        CH_LESS,        CH_MORE,                                        CH_DLR,         RALT(KC_8),     RALT(KC_9),     CH_PAST,        CH_AMPR,        CH_SCLN,
+    KC_NO,          ST_MACRO_0,     RALT(KC_G),     CH_PERC,        CH_LESS,        CH_MORE,                                        CH_DLR,         RALT(KC_8),     RALT(KC_9),     CH_PAST,        CH_AMPR,        CH_SCLN,
     KC_NO,          ST_MACRO_1,     CH_HASH,        CH_QST,         CH_DQOT,        CH_QUOT,                                        CH_SLSH,        CH_LPRN,        CH_RPRN,        CH_EQL,         CH_EXLM,        CH_PLUS,
-    KC_NO,          CH_DIER,        KC_NO,          RALT(LSFT(KC_7)),CH_GRV,         KC_NO,                                          CH_PIPE,        RALT(KC_5),     RALT(KC_6),     CH_COLN,        CH_MINS,        KC_NO,
+    KC_NO,          CH_DIER,        KC_NO,          RALT(LSFT(KC_7)),ST_MACRO_2,     CH_GRV,                                         CH_PIPE,        RALT(KC_5),     RALT(KC_6),     CH_COLN,        CH_MINS,        KC_NO,
                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
@@ -231,6 +232,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_TAP(X_EQUAL)SS_DELAY(50)  SS_TAP(X_SPACE));
     }
     break;
+    case ST_MACRO_2:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LSFT(SS_TAP(X_EQUAL))SS_DELAY(50)  SS_TAP(X_SPACE));
+    }
+    break;
 
     case RGB_MODE_PLAIN:
       if (record->event.pressed) {
@@ -240,3 +246,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
